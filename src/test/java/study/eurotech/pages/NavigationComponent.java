@@ -1,5 +1,6 @@
 package study.eurotech.pages;
 
+import io.qameta.allure.Step;
 import study.eurotech.context.TestContext;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,6 +19,7 @@ public class NavigationComponent extends BasePage {
 
     }
 
+    @Step("Кликнуть на кнопку 'All Posts'")
     public AllPostsPage openAllPosts() {
         allPosts.click();
         return new AllPostsPage(context);

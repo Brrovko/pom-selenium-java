@@ -1,5 +1,6 @@
 package study.eurotech.pages;
 
+import io.qameta.allure.Step;
 import study.eurotech.utils.ConfigurationReader;
 import study.eurotech.context.TestContext;
 import org.openqa.selenium.WebElement;
@@ -22,6 +23,7 @@ public class LoginPage extends BasePage {
         context.wait.until(ExpectedConditions.urlToBe("http://eurotech.study/login"));
     }
 
+    @Step("Вход в систестему используя email и пароль")
     public DashboardPage login() {
         context.wait.until(ExpectedConditions.visibilityOf(confirmButton));
         confirmButton.click();

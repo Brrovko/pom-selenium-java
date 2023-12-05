@@ -1,5 +1,6 @@
 package study.eurotech.pages;
 
+import io.qameta.allure.Step;
 import study.eurotech.context.TestContext;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
@@ -49,6 +50,7 @@ public class AllPostsPage extends BasePage {
                 .orElseThrow();
     }
 
+    @Step("Выполнить поисковой запрос: [{text}]")
     public AllPostsPage search(String text) {
         searchInput.sendKeys(text);
         searchButton.click();

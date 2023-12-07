@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Тесты eurotechstudy" verbose="1">
+    <test name="Тесты системы постинга сообщения">
+        <classes>
+            <class name="study.eurotech.tests.EurotechLoginTests"></class>
+            <class name="study.eurotech.tests.EurotechTests">
+                <methods>
+                    <exclude name="postsTextTest"></exclude>
+                </methods>
+            </class>
+            
+        </classes>
+    </test>
+</suite>

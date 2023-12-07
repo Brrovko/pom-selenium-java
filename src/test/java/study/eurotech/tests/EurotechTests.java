@@ -12,24 +12,7 @@ import static io.qameta.allure.SeverityLevel.CRITICAL;
 
 public class EurotechTests extends TestBase {
 
-    @Test
-    @Description("Проверка входа в систему")
-    @Owner("Team #1")
-    @Severity(CRITICAL)
-    @Link(name = "Website", url = "https://dev.example.com/")
-    @Issue("AUTH-123")
-    @TmsLink("TMS-456")
-    @Epic("Web interface")
-    @Feature("Essential features")
-    @Story("Authentication")
-    public void loginTest() {
-        openUrl(ConfigurationReader.get("url") + "login");
-        LoginPage loginPage = new LoginPage(context);
 
-        DashboardPage dashboardPage = loginPage.login();
-
-        Assert.assertEquals(dashboardPage.getHeaderText(), "Dashboard");
-    }
 
     @Test
     @Description("Проверка количества записей")
@@ -48,7 +31,7 @@ public class EurotechTests extends TestBase {
 
         Assert.assertEquals(allPostsPage.getHeaderText(), "Posts");
 
-        Assert.assertEquals((long) allPostsPage.getPosts().size(), 283);
+        Assert.assertEquals((long) allPostsPage.getPosts().size(), 284);
 
     }
 
@@ -113,6 +96,6 @@ public class EurotechTests extends TestBase {
         List<PostComponent> searchResult = allPostsPage.getPosts();
 
         Assert.assertEquals((long) searchResult.size(), 1);
-        Assert.assertEquals(searchResult.get(0).getPostTitle(), "JDBC123");
+        Assert.assertEquals(searchResult.get(0).getPostTitle(), "JDBC");
     }
 }

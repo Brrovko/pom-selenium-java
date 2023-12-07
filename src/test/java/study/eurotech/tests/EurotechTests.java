@@ -22,9 +22,9 @@ public class EurotechTests extends TestBase {
     @Story("Authentication")
     public void postsCountTest() {
 
-        context.driver.get(ConfigurationReader.get("url") + "login");
-        LoginPage loginPage = new LoginPage(context);
-        NavigationComponent navigationPage = new NavigationComponent(context);
+        getContext().driver.get(ConfigurationReader.get("url") + "login");
+        LoginPage loginPage = new LoginPage(getContext());
+        NavigationComponent navigationPage = new NavigationComponent(getContext());
 
         loginPage.login();
         AllPostsPage allPostsPage = navigationPage.openAllPosts();
@@ -43,9 +43,9 @@ public class EurotechTests extends TestBase {
     @Story("Authentication")
     public void postsTextTest() {
 
-        context.driver.get(ConfigurationReader.get("url") + "login");
-        LoginPage loginPage = new LoginPage(context);
-        NavigationComponent navigationPage = new NavigationComponent(context);
+        getContext().driver.get(ConfigurationReader.get("url") + "login");
+        LoginPage loginPage = new LoginPage(getContext());
+        NavigationComponent navigationPage = new NavigationComponent(getContext());
 
         loginPage.login();
         AllPostsPage allPostsPage = navigationPage.openAllPosts();
@@ -65,9 +65,9 @@ public class EurotechTests extends TestBase {
     @Story("Search")
     public void postsFilterTest() {
 
-        context.driver.get(ConfigurationReader.get("url") + "login");
-        LoginPage loginPage = new LoginPage(context);
-        NavigationComponent navigationPage = new NavigationComponent(context);
+        getContext().driver.get(ConfigurationReader.get("url") + "login");
+        LoginPage loginPage = new LoginPage(getContext());
+        NavigationComponent navigationPage = new NavigationComponent(getContext());
 
         loginPage.login();
         AllPostsPage allPostsPage = navigationPage.openAllPosts();
@@ -85,8 +85,8 @@ public class EurotechTests extends TestBase {
     public void searchPostTest() {
         openUrl(ConfigurationReader.get("url") + "login");
 
-        LoginPage loginPage = new LoginPage(context);
-        NavigationComponent navigationPage = new NavigationComponent(context);
+        LoginPage loginPage = new LoginPage(getContext());
+        NavigationComponent navigationPage = new NavigationComponent(getContext());
 
         loginPage.login();
         AllPostsPage allPostsPage = navigationPage.openAllPosts();

@@ -17,21 +17,25 @@ import java.io.ByteArrayInputStream;
 import java.time.Duration;
 
 public class TestBase {
-    TestContext context;
+    protected ThreadLocal<TestContext> context = new ThreadLocal<>();
+
+    public TestContext getContext(){
+        return context.get();
+    }
 
     @BeforeMethod
     public void beforeMethod() {
-        context = new TestContext();
-        context.driver = DriverFactory.get();
-        context.wait = new WebDriverWait(context.driver, Duration.ofSeconds(Long.parseLong(ConfigurationReader.get("timeout"))));
-        context.actions = new Actions(context.driver);
+        context.set(new TestContext());
+        getContext().driver = DriverFactory.get();
+        getContext().wait = new WebDriverWait(getContext().driver, Duration.ofSeconds(Long.parseLong(ConfigurationReader.get("timeout"))));
+        getContext().actions = new Actions(getContext().driver);
     }
 
     @AfterMethod
     public void afterMethod(ITestResult result) {
         if (!result.isSuccess()) {
             try {
-                TakesScreenshot takesScreenshot = (TakesScreenshot) context.driver;
+                TakesScreenshot takesScreenshot = (TakesScreenshot) getContext().driver;
                 byte[] screenshot = takesScreenshot.getScreenshotAs(OutputType.BYTES);
 
                 Allure.addAttachment("Скриншот в момент падения тестов", new ByteArrayInputStream(screenshot));
@@ -40,13 +44,13 @@ public class TestBase {
             }
         }
 
-        if (context.driver != null) {
-            context.driver.quit();
+        if (getContext().driver != null) {
+            getContext().driver.quit();
         }
     }
 
     @Step("Открыть адрес: [{relatedPath}]")
     public void openUrl(String path) {
-        context.driver.get(path);
+        getContext().driver.get(path);
     }
 }

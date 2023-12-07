@@ -22,7 +22,7 @@ public class EurotechLoginTests extends TestBase {
     @Story("Authentication")
     public void loginTest() {
         openUrl(ConfigurationReader.get("url") + "login");
-        LoginPage loginPage = new LoginPage(context);
+        LoginPage loginPage = new LoginPage(getContext());
 
         DashboardPage dashboardPage = loginPage.login();
 

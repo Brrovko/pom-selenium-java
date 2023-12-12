@@ -10,7 +10,7 @@ import study.eurotech.utils.ConfigurationReader;
 import static io.qameta.allure.SeverityLevel.CRITICAL;
 
 public class EurotechLoginTests extends TestBase {
-    @Test(testName = "Имя теста")
+    @Test(testName = "Проверка входа в систему")
     @Description("Проверка входа в систему")
     @Owner("Team #1")
     @Severity(CRITICAL)

@@ -17,7 +17,7 @@ import java.io.ByteArrayInputStream;
 import java.time.Duration;
 
 public class TestBase {
-    protected ThreadLocal<TestContext> context = new ThreadLocal<>();
+    private ThreadLocal<TestContext> context = new ThreadLocal<>();
 
     public TestContext getContext(){
         return context.get();

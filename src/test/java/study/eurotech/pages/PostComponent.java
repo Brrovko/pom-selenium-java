@@ -12,7 +12,6 @@ public class PostComponent extends BasePage {
         this.element = element;
     }
 
-
     public String getPostTitle() {
         return element.findElement(By.cssSelector("#post-item-heading")).getText();
     }

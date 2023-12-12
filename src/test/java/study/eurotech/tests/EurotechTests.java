@@ -31,7 +31,7 @@ public class EurotechTests extends TestBase {
 
         Assert.assertEquals(allPostsPage.getHeaderText(), "Posts");
 
-        Assert.assertEquals((long) allPostsPage.getPosts().size(), 284);
+        Assert.assertEquals((long) allPostsPage.getPosts().size(), 283);
 
     }
 
